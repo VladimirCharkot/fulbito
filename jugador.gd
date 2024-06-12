@@ -8,6 +8,7 @@ var vel = 2
 var pelota = null
 var pateo = 0
 var energia = 20
+var moversino = true
 
 func _ready():
 	$Sprite.play("quieto")
@@ -26,8 +27,15 @@ func _process(delta):
 		pelota.vel = patada * fuerza_patada
 		pelota.girando = true
 		pelota = null
-		
+		energia -= 2
+	if Input.is_action_pressed("Correr"):
+		vel = energia/2.5
+		energia -= 0.02
+	else:
+		vel = energia/5
+	
 	queue_redraw()
+	print(vel)
 
 func _draw():
 	var p1 = Vector2(-10,-15)
@@ -52,7 +60,6 @@ func manejar_pelota(v):
 					d = Vector2(0, 30)
 				if v.y < 0:
 					pass
-					
 		else:
 			pelota.girando = false
 			d = Vector2(0, 30)
@@ -74,6 +81,7 @@ func apariencia(v):
 				$Sprite.play("abajo")
 			if v.y < 0:
 				$Sprite.play("arriba")
+		
 	else: 
 		$Sprite.play("quieto")
 
