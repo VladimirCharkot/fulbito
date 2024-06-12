@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhnaegussyapr"]
+
+[ext_resource type="Script" path="res://cancha.gd" id="1_lk3po"]
+[ext_resource type="Texture2D" uid="uid://bwosqg18566lx" path="res://assets/cancha.jpg" id="1_q5uho"]
+[ext_resource type="PackedScene" uid="uid://bkg1qgra4y7k7" path="res://jugador.tscn" id="2_mvgw2"]
+[ext_resource type="PackedScene" uid="uid://b44cnka3c6l3t" path="res://pelota.tscn" id="3_pt22m"]
+[ext_resource type="PackedScene" uid="uid://tk4wiexdj8y2" path="res://arquero.tscn" id="4_031q2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0yva"]
+size = Vector2(190, 484)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3r2g"]
+size = Vector2(37.5, 122)
+
+[node name="Cancha" type="Node2D"]
+script = ExtResource("1_lk3po")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(583, 326)
+scale = Vector2(0.268669, 0.268669)
+texture = ExtResource("1_q5uho")
+
+[node name="Jugador" parent="." instance=ExtResource("2_mvgw2")]
+position = Vector2(304, 302)
+scale = Vector2(3, 3)
+fuerza_patada = 2
+
+[node name="Pelota" parent="." instance=ExtResource("3_pt22m")]
+position = Vector2(290, 430)
+scale = Vector2(0.8, 0.8)
+
+[node name="AreaIzq" type="Area2D" parent="."]
+position = Vector2(71, 328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaIzq"]
+shape = SubResource("RectangleShape2D_q0yva")
+
+[node name="ArcoIzq" type="Area2D" parent="."]
+position = Vector2(-54, 326)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcoIzq"]
+position = Vector2(-0.25, 0)
+shape = SubResource("RectangleShape2D_r3r2g")
+
+[node name="Arquero" parent="." instance=ExtResource("4_031q2")]
+position = Vector2(17, 321)
+scale = Vector2(3, 3)

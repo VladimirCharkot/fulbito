@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cs7bwwy2xaah"
+path="res://.godot/imported/Muchachos 8-bit simple.wav-62af8da3e026be448bf2aae09270535a.sample"
+
+[deps]
+
+source_file="res://assets/Muchachos 8-bit simple.wav"
+dest_files=["res://.godot/imported/Muchachos 8-bit simple.wav-62af8da3e026be448bf2aae09270535a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,125 @@
+[gd_scene load_steps=21 format=3 uid="uid://bkg1qgra4y7k7"]
+
+[ext_resource type="Texture2D" uid="uid://broatbh563a6b" path="res://assets/Footballers/Argentina/front/frente_0.png" id="1_1wnr8"]
+[ext_resource type="Script" path="res://jugador.gd" id="1_7e8mr"]
+[ext_resource type="Texture2D" uid="uid://cos5cr2dambxo" path="res://assets/Footballers/Argentina/front/frente_1.png" id="2_1xy5j"]
+[ext_resource type="Texture2D" uid="uid://cvgfboq6l73l5" path="res://assets/Footballers/Argentina/front/frente_2.png" id="3_lwogs"]
+[ext_resource type="Texture2D" uid="uid://dlwc4tbf4trau" path="res://assets/Footballers/Argentina/front/frente_3.png" id="4_5hwbt"]
+[ext_resource type="Texture2D" uid="uid://djqeyrvedor4b" path="res://assets/Footballers/Argentina/back/atras_0.png" id="5_6wac6"]
+[ext_resource type="Texture2D" uid="uid://dbiojxdcty3w6" path="res://assets/Footballers/Argentina/back/atras_1.png" id="6_t57t8"]
+[ext_resource type="Texture2D" uid="uid://gfqomnth8ihi" path="res://assets/Footballers/Argentina/back/atras_2.png" id="7_3hf44"]
+[ext_resource type="Texture2D" uid="uid://bmym8b00sgfol" path="res://assets/Footballers/Argentina/back/atras_3.png" id="8_6u7i6"]
+[ext_resource type="Texture2D" uid="uid://dly5cmbar0rnr" path="res://assets/Footballers/Argentina/walk/caminando_0.png" id="9_x6cjd"]
+[ext_resource type="Texture2D" uid="uid://cbasbs3jlvbmg" path="res://assets/Footballers/Argentina/walk/caminando_1.png" id="10_xf01s"]
+[ext_resource type="Texture2D" uid="uid://14oiirg2ve7h" path="res://assets/Footballers/Argentina/walk/caminando_2.png" id="11_nr3ty"]
+[ext_resource type="Texture2D" uid="uid://e8vyn73u1p4k" path="res://assets/Footballers/Argentina/walk/caminando_3.png" id="12_57dio"]
+[ext_resource type="Texture2D" uid="uid://st6g3mqhfefs" path="res://assets/Footballers/Argentina/death.png" id="13_r4yrb"]
+[ext_resource type="Texture2D" uid="uid://dmc0jkostaqwt" path="res://assets/Footballers/Argentina/idle/quieto_0.png" id="14_7ulub"]
+[ext_resource type="Texture2D" uid="uid://i7n0hfjp1ia4" path="res://assets/Footballers/Argentina/idle/quieto_1.png" id="15_rx665"]
+[ext_resource type="Texture2D" uid="uid://ry7rkspfds3m" path="res://assets/Footballers/Argentina/idle/quieto_2.png" id="16_kiggq"]
+[ext_resource type="Texture2D" uid="uid://d4j7lohr51mtg" path="res://assets/Footballers/Argentina/idle/quieto_3.png" id="17_7h057"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gm86t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1wnr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1xy5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lwogs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5hwbt")
+}],
+"loop": true,
+"name": &"abajo",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6wac6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_t57t8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3hf44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6u7i6")
+}],
+"loop": true,
+"name": &"arriba",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_x6cjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xf01s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_nr3ty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_57dio")
+}],
+"loop": true,
+"name": &"lateral",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_r4yrb")
+}],
+"loop": true,
+"name": &"muerto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_7ulub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rx665")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_kiggq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_7h057")
+}],
+"loop": true,
+"name": &"quieto",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqriv"]
+radius = 4.0
+height = 18.0
+
+[node name="Jugador" type="Node2D"]
+script = ExtResource("1_7e8mr")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_gm86t")
+animation = &"quieto"
+frame_progress = 0.920627
+
+[node name="Control" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control"]
+position = Vector2(0, 9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dqriv")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Control" to="." method="_on_control_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
