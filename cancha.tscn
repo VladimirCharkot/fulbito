@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhnaegussyapr"]
+[gd_scene load_steps=11 format=3 uid="uid://dhnaegussyapr"]
 
 [ext_resource type="Script" path="res://cancha.gd" id="1_lk3po"]
 [ext_resource type="Texture2D" uid="uid://bwosqg18566lx" path="res://assets/cancha.jpg" id="1_q5uho"]
@@ -11,6 +11,13 @@ size = Vector2(190, 484)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3r2g"]
 size = Vector2(37.5, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5m5a"]
+size = Vector2(37, 298.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvptp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_r7lq2"]
 
 [node name="Cancha" type="Node2D"]
 script = ExtResource("1_lk3po")
@@ -33,6 +40,7 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(71, 328)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaIzq"]
+position = Vector2(-10, -3)
 shape = SubResource("RectangleShape2D_q0yva")
 
 [node name="ArcoIzq" type="Area2D" parent="."]
@@ -43,5 +51,58 @@ position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_r3r2g")
 
 [node name="Arquero" parent="." instance=ExtResource("4_031q2")]
-position = Vector2(17, 321)
+position = Vector2(35, 372)
 scale = Vector2(3, 3)
+
+[node name="Fuera" type="Area2D" parent="."]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Fuera"]
+position = Vector2(463, 733)
+scale = Vector2(48.348, 0.182759)
+shape = SubResource("RectangleShape2D_i5m5a")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Fuera"]
+position = Vector2(463, -84)
+scale = Vector2(48.348, 0.182759)
+shape = SubResource("RectangleShape2D_i5m5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fuera"]
+position = Vector2(-64, 102)
+shape = SubResource("RectangleShape2D_i5m5a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fuera"]
+position = Vector2(-55, 544)
+shape = SubResource("RectangleShape2D_i5m5a")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Fuera"]
+position = Vector2(1211, 110)
+shape = SubResource("RectangleShape2D_i5m5a")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Fuera"]
+position = Vector2(1220, 552)
+shape = SubResource("RectangleShape2D_i5m5a")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(559, 733)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_dvptp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, -60)
+rotation = -3.13339
+scale = Vector2(295.328, 215.616)
+texture = SubResource("CanvasTexture_r7lq2")
+
+[node name="Label" type="Label" parent="Area2D"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 69.0
+offset_top = -68.0
+offset_right = 109.0
+offset_bottom = -45.0
+rotation = -3.21287
+scale = Vector2(2.66756, -3.18977)
+text = " 0 - 0"
+
+[connection signal="area_entered" from="ArcoIzq" to="." method="_on_arco_izq_area_entered"]
+[connection signal="area_entered" from="Fuera" to="." method="_on_fuera_area_entered"]

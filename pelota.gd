@@ -9,10 +9,10 @@ var vel = Vector2.ZERO
 func _ready():
 	pass
 	#rotation = 5
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	print(position)
 	if girando:
 		rotation += vel.length() / 10
 		
