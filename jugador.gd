@@ -28,12 +28,25 @@ func _process(delta):
 		pelota.girando = true
 		pelota = null
 		energia -= 2
+		
 	if Input.is_action_pressed("Correr"):
 		vel = energia/2.5
-		energia -= 0.02
+		energia -= 0.035
 	else:
 		vel = energia/5
+		#await(1) 
+		energia += 0.1
 	
+	if energia > 20:
+		energia = 20
+	
+	if vel <= 0:
+		vel = 0
+		
+	if energia <= 0:
+		energia = 0
+
+		
 	queue_redraw()
 	print(vel)
 
@@ -90,5 +103,5 @@ func _on_control_area_entered(area):
 	if area is Pelota:
 		pelota = area
 
-func _on_timer_timeout():
-	energia = max(energia - 2, 0)	# Idiomática
+#func _on_timer_timeout():
+	#energia = max(energia - 2, 0)	# Idiomática
