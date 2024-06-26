@@ -1,6 +1,7 @@
 extends Jugador
-
+var ultipo = Vector2(0,0)
 var area: Area2D = null
+
 var arco: Area2D = null
 var pelotapos: Node2D = null
 
@@ -30,3 +31,4 @@ func _process(delta):
 func _draw():
 	draw_circle(punto_deseado, 5, Color.BROWN)
 	draw_line(Vector2.ZERO, velocity, Color.DARK_BLUE, 3)
+

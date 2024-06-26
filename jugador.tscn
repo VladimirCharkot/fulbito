@@ -125,4 +125,6 @@ position = Vector2(0, 9)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dqriv")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="area_entered" from="Control" to="." method="_on_control_area_entered"]

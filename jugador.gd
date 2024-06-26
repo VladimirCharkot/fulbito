@@ -5,8 +5,8 @@ class_name Jugador
 @export var fuerza_patada = 1
 @export var energia_max = 1000
 
-
 var vel = 200
+
 var pelota = null
 var pateo = 0
 var energia = 1000
