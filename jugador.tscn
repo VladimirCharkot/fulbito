@@ -119,7 +119,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dqriv")
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [connection signal="area_entered" from="Control" to="." method="_on_control_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
