@@ -12,7 +12,7 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(position)
+	#print(position)
 	if girando:
 		rotation += vel.length() / 10
 		

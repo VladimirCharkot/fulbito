@@ -37,6 +37,8 @@ position = Vector2(588, 322)
 scale = Vector2(0.8, 0.8)
 
 [node name="Camera2D" type="Camera2D" parent="Pelota"]
+scale = Vector2(1, 1)
+enabled = false
 
 [node name="AreaIzq" type="Area2D" parent="."]
 position = Vector2(71, 328)
