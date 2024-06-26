@@ -21,9 +21,12 @@ scale = Vector2(0.268669, 0.268669)
 texture = ExtResource("1_q5uho")
 
 [node name="Jugador" parent="." instance=ExtResource("2_mvgw2")]
+modulate = Color(1, 1, 1, 0.45098)
 position = Vector2(304, 302)
 scale = Vector2(3, 3)
 fuerza_patada = 2
+
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
 
 [node name="Pelota" parent="." instance=ExtResource("3_pt22m")]
 position = Vector2(290, 430)
@@ -45,3 +48,9 @@ shape = SubResource("RectangleShape2D_r3r2g")
 [node name="Arquero" parent="." instance=ExtResource("4_031q2")]
 position = Vector2(17, 321)
 scale = Vector2(3, 3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(-30, 99, 162, 100, 162, 554, -29, 554)
