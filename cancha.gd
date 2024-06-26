@@ -1,13 +1,16 @@
 extends Node2D
+
 signal Salio
 var gol = 0
 @onready var cam =  $Pelota/Camera2D
 @onready var camjug =  $Jugador/Camera2D
 var gol_riv = 0 #por si las dudas
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Arquero.area = $AreaIzq
 	$Arquero.pelotapos = $Pelota
+	$Arquero.arco = $ArcoIzq
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
